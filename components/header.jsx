@@ -1,8 +1,11 @@
+"use client";
+
 import Link from 'next/link'
 import Image from 'next/image'
 import React from 'react'
 import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
 import { Button } from './ui/button'
+import { Authenticated, Unauthenticated } from 'convex/react'
 
 const Header = () => {
   return (
@@ -25,19 +28,21 @@ const Header = () => {
 
                 {/* Right Side Action */}
                 <div className="flex items-center">
-                    <SignedOut>
+                    <Authenticated>
+                        <UserButton />
+                    </Authenticated>
+
+                    <Unauthenticated>
                         <SignInButton mode='modal'>
                             <Button size='sm'>Sign In</Button>
                         </SignInButton>
-                        
-                        </SignedOut>
-                        <SignedIn>
-                        <UserButton />
-                        </SignedIn>
+                    </Unauthenticated> 
                 </div>
             </div>
 
             {/* Mobile Search & Location - Below Header */}
+
+            {/* Loader */}
         </nav>
 
         {/* Modals */}
