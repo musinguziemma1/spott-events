@@ -1,8 +1,10 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { ConvexClientProvider } from "./ConvexClientProvider";
 import "./globals.css";
 import { ThemeProvider } from "../components/theme-provider";
 import { Footer } from "react-day-picker";
-import Header from "@/components/header";
+import Header from "../components/header";
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 
 
 export const metadata = {
@@ -22,7 +24,13 @@ export default function RootLayout({ children }) {
             enableSystem
             disableTransitionOnChange
           >
-            {/* Header */}
+            <ClerkProvider
+              appearance={{
+                theme: dark,
+              }}
+            >
+            <ConvexClientProvider>
+              {/* Header */}
             <Header />
               <main className="relative min-h-screen container mx-auto pt-40 md:pt-32">
                 <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
@@ -39,6 +47,8 @@ export default function RootLayout({ children }) {
                   </div>
                 </Footer>
               </main>
+            </ConvexClientProvider>
+            </ClerkProvider>
           </ThemeProvider>
       </body>
     </html>
