@@ -41,7 +41,8 @@ export default defineSchema({
         category: v.string(),
         tags: v.array(v.string()),
         startDate: v.number(),
-        endDate: v.number(),        
+        endDate: v.number(),
+        timezone: v.string(),     
 
         // Location
         locationType: v.union(v.literal("physical"), v.literal("online")),
@@ -49,6 +50,8 @@ export default defineSchema({
         address: v.optional(v.string()),
         city: v.optional(v.string()), // Required for physical events, optional for online
         state: v.optional(v.string()),
+        country: v.string(),
+
         // Capacity & Ticketing
         capacity: v.number(),
         ticketType: v.union(v.literal("free"), v.literal("paid")),
