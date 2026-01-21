@@ -33,10 +33,9 @@ const Header = () => {
 
                 {/* Right Side Action */}
                 <div className="flex items-center">
-                    <Button variant='ghost' size='sm' onclick={() => setShowUpgradeModal(true)}>
+                    <Button variant='ghost' size='sm' onClick={() => setShowUpgradeModal(true)}>
                         Pricing
                     </Button>
-
                     <Button variant='ghost' size='sm' asChild className={"mr-2"}>
                         <Link href={"/explore"}>Explore</Link>
                     </Button>

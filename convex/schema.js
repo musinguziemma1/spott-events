@@ -1,8 +1,5 @@
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
-import { defineSchema, defineTable } from "convex/server";
-import { v } from "convex/values";
-
 
 export default defineSchema({
     // Users Table
@@ -52,8 +49,6 @@ export default defineSchema({
         address: v.optional(v.string()),
         city: v.optional(v.string()), // Required for physical events, optional for online
         state: v.optional(v.string()),
-        state: v.optional(v.string()),
-
         // Capacity & Ticketing
         capacity: v.number(),
         ticketType: v.union(v.literal("free"), v.literal("paid")),
