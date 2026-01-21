@@ -2,9 +2,9 @@ import { ConvexClientProvider } from "./ConvexClientProvider";
 import "./globals.css";
 import { ThemeProvider } from "../components/theme-provider";
 import { Footer } from "react-day-picker";
-import Header from "../components/header";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
+import Header from "../components/header";
 
 
 export const metadata = {
@@ -14,7 +14,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`bg-linear-to-br from-gray-950 via-zinc-900 to-stone-900 text-white`}
       >
@@ -31,7 +31,8 @@ export default function RootLayout({ children }) {
             >
               <ConvexClientProvider>
                 {/* Header */}
-                  <Header />
+                <Header />
+                  
                 <main className="relative min-h-screen container mx-auto pt-40 md:pt-32">
                   <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
                     <div className="absolute top-0 left-1/4 w-96 h-96 bg-pink-600/20 rounded-full blur-3xl"/>
