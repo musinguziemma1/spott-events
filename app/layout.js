@@ -1,10 +1,10 @@
 import { ConvexClientProvider } from "./ConvexClientProvider";
 import "./globals.css";
 import { ThemeProvider } from "../components/theme-provider";
-import { Footer } from "react-day-picker";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import Header from "../components/header";
+import { Toaster } from "sonner";
 
 
 export const metadata = {
@@ -42,11 +42,12 @@ export default function RootLayout({ children }) {
                     {children}
                   </div>
                   {/* Footer */}
-                  <Footer className="border-t border-gray-800/50 py-8 px-6 max-w-7xl mx-auto">
+                  <footer className="border-t border-gray-800/50 py-8 px-6 max-w-7xl mx-auto">
                     <div className="text-sm text-white/30">
                       Made with 💕 by DavX Tech Solutions
                     </div>
-                  </Footer>
+                  </footer>
+                  <Toaster position="top-right" richColors />
                 </main>
               </ConvexClientProvider>
             </ClerkProvider>
